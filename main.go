@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"package_installer/logic"
+	"package_installer/resolver"
 )
 
 
@@ -10,11 +10,11 @@ func main() {
 	/*
 	Create the dependencies, this will be replaced with a parser
 	 */
-	a := logic.Node{Name:"a"}
-	b := logic.Node{Name:"b"}
-	c := logic.Node{Name:"c"}
-	d := logic.Node{Name:"d"}
-	e := logic.Node{Name:"e"}
+	a := resolver.Node{Name: "a"}
+	b := resolver.Node{Name: "b"}
+	c := resolver.Node{Name: "c"}
+	d := resolver.Node{Name: "d"}
+	e := resolver.Node{Name: "e"}
 	a.AddEdge(b)
 	a.AddEdge(d)
 	b.AddEdge(c)

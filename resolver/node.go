@@ -1,4 +1,4 @@
-package logic
+package resolver
 
 type Node struct {
 	Name string
