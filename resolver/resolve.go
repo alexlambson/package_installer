@@ -2,9 +2,10 @@ package resolver
 
 import "fmt"
 
-func Resolve(node *Node){
+func Resolve(node *Node, resolved *[]string){
 	fmt.Println(node.Name)
 	for _, edge := range node.Edges{
-		Resolve(edge)
+		Resolve(edge, resolved)
 	}
+	*resolved = append(*resolved, node.Name)
 }
