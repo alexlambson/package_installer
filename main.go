@@ -8,8 +8,8 @@ import (
 
 func main() {
 	/*
-	Create the dependencies, this will be replaced with a parser
-	 */
+		Create the dependencies, this will be replaced with a parser
+	*/
 	a := &resolver.Node{Name: "a"}
 	b := &resolver.Node{Name: "b"}
 	c := &resolver.Node{Name: "c"}

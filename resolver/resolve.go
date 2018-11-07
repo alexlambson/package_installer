@@ -22,11 +22,11 @@ func nameInSlice(name string, resolved []string) bool {
 func Resolve(node *Node, resolved *[]string, seen *[]string) (e error) {
 	e = nil
 	*seen = append(*seen, node.Name)
-	for _, edge := range node.Edges{
+	for _, edge := range node.Edges {
 		if !nameInSlice(edge.Name, *resolved) {
-			if nameInSlice(edge.Name, *seen){
+			if nameInSlice(edge.Name, *seen) {
 				errorString := fmt.Sprintf("Circular Dependency found: %s -> %s", node.Name, edge.Name)
-				e = CircularDependencyError{s:errorString}
+				e = CircularDependencyError{s: errorString}
 				return
 			}
 			Resolve(edge, resolved, seen)
