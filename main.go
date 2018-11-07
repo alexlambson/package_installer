@@ -21,15 +21,15 @@ func main() {
 	b.AddEdge(e)
 	c.AddEdge(d)
 	c.AddEdge(e)
-	d.AddEdge(b)
+	//d.AddEdge(b)
 	dependencyOrder := &[]string{}
 	seenNodes := &[]string{}
-	error := resolver.Resolve(a, dependencyOrder, seenNodes)
-	if error != nil {
-		fmt.Println(error)
+	returnedError := resolver.Resolve(a, dependencyOrder, seenNodes)
+	if returnedError != nil {
+		fmt.Println(returnedError)
 		os.Exit(2)
 	}
-	for _, node := range *dependencyOrder {
-		fmt.Print(node)
+	for _, name := range *dependencyOrder {
+		fmt.Printf("%s ", name)
 	}
 }
