@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"os"
 	"package_installer/resolver"
 )
 
@@ -20,8 +21,14 @@ func main() {
 	b.AddEdge(e)
 	c.AddEdge(d)
 	c.AddEdge(e)
+	d.AddEdge(b)
 	dependencyOrder := &[]string{}
-	resolver.Resolve(a, dependencyOrder)
+	seenNodes := &[]string{}
+	error := resolver.Resolve(a, dependencyOrder, seenNodes)
+	if error != nil {
+		fmt.Println(error)
+		os.Exit(2)
+	}
 	for _, node := range *dependencyOrder {
 		fmt.Print(node)
 	}
